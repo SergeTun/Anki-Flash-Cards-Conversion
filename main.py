@@ -20,10 +20,22 @@ def noteFormat():
                 'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
             },
         ]
+    return note_format
+    )   
+
+def createNotes(note_format):
+    my_note = genanki.note(
+        model = note_format,
+        fields=[]
     )
 
-def createFrontCard():
-    pass
+def process_folder(folder_path):
+    files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
 
-def createBackCard():
-    pass 
+    for file_name in files:
+        if file_name.endswith('txt'):
+            pass
+
+def main():
+    userName = os.getlogin()
+    folder_path = rf'C:\Users\{userName}\Desktop\Anki_Converter'
